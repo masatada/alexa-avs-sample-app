@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.amazon.alexa.avs</groupId>
   <artifactId>sample-java-client</artifactId>
-  <version>20160207.8</version>
+  <version>20160207.6</version>
   <packaging>jar</packaging>
   <name>Alexa Voice Service Sample Java Client</name>
   <url>https://developer.amazon.com/appsandservices/solutions/alexa/alexa-voice-service</url>
@@ -153,6 +153,12 @@
         <filtering>true</filtering>
         <includes>
           <include>**/*.properties</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.so</include>
         </includes>
       </resource>
       <!-- Don't filter the mp3 files or they'll get corrupted -->

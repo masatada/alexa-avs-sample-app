@@ -25,7 +25,7 @@ namespace AlexaWakeWord {
 
 static const std::string  RESOURCE_FILE  = "../ext/resources/common.res";
 static const std::string  MODEL_FILE     = "../ext/resources/alexa.umdl";
-static const float        AUDIO_GAIN     = 1.0;
+static const float        AUDIO_GAIN     = 4.0;
 static const bool         APPLY_FRONTEND = true;
 static const int          MICROSECONDS_BETWEEN_SAMPLES = 100000;
 
@@ -79,6 +79,7 @@ void KittAiSnowboyWakeWordEngine::resume() {
 
   log(Logger::INFO, "KittAiSnowboyWakeWordEngine: handling resume");
 
+  initDetector();
   initPortAudio();
 }
 
@@ -106,6 +107,7 @@ void KittAiSnowboyWakeWordEngine::initDetector() {
   m_detector = make_unique<SnowboyDetect>(RESOURCE_FILE, MODEL_FILE);
   m_detector->SetAudioGain(AUDIO_GAIN);
   m_detector->ApplyFrontend(APPLY_FRONTEND);
+  m_detector->SetSensitivity("1.0");
   m_isDetectorSetup = true;
 }
 
